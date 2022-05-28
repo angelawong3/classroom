@@ -1,3 +1,4 @@
+// the process.argv[2] always start with [2]
 const a = process.argv[2];
 const b = process.argv[3];
 
