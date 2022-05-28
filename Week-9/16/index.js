@@ -1,5 +1,7 @@
 // TODO: Import `maths.js`
-const maths = require("./maths.js");
+// const maths = require("./maths.js");
+// or:
+const { sum, difference, product, quotient } = require("./maths.js");
 
 // console.log(maths);
 
@@ -9,28 +11,47 @@ const maths = require("./maths.js");
 // When I run node index.js quotient 3 4 in the command line, it should print out 0.75
 
 // TODO: Capture the values passed from the command line into these three variables: `operation`, `numOne` and `numTwo`
-const operation = process.argv[2];
-const numOne = Number(process.argv[3]);
-const numTwo = Number(process.argv[4]);
+// const operation = process.argv[2];
+// const numOne = Number(process.argv[3]);
+// const numTwo = Number(process.argv[4]);
+// or:
+const { argv } = process;
+const [, , operation, numOneString, numTwoSting] = argv;
+
+const numOne = Number(numOneString);
+const numTwo = Number(numTwoSting);
 
 // console.log(operation, numOne, numTwo);
 // TODO: Create a `switch` statement that accepts an `operation` parameter
 let result = 0;
 
+// switch (operation) {
+//   case "sum":
+//     result = maths.sum(numOne, numTwo);
+//     break;
+//   case "difference":
+//     result = maths.difference(numOne, numTwo);
+//     break;
+//   case "product":
+//     result = maths.product(numOne, numTwo);
+//     break;
+//   case "quotient":
+//     result = maths.quotient(numOne, numTwo);
+//     break;
+// }
+// or:
 switch (operation) {
   case "sum":
-    result = maths.sum(numOne, numTwo);
+    result = sum(numOne, numTwo);
     break;
   case "difference":
-    result = maths.difference(numOne, numTwo);
+    result = difference(numOne, numTwo);
     break;
   case "product":
-    result = maths.product(numOne, numTwo);
+    result = product(numOne, numTwo);
     break;
   case "quotient":
-    result = maths.quotient(numOne, numTwo);
-    break;
-  default:
+    result = quotient(numOne, numTwo);
     break;
 }
 
